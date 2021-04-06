@@ -1,4 +1,4 @@
-# SE_Project_8
+# [SE_Project_8](https://github.com/SMU-EB0055/SE2021_HAEA0008_2)
 
 ### 2021-1 소프트웨어 공학 팀 프로젝트_8조
 
