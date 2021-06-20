@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/reserve_manager"
+        android:icon="@drawable/ic_baseline_book_online_24"
+        android:title="예약관리"
+        android:iconTint="@color/three"/>
+    <item
+        android:id="@+id/user"
+        android:icon="@drawable/ic_baseline_person_pin_24"
+        android:title="내 정보"
+        android:iconTint="@color/four"/>
+    <item
+        android:id="@+id/add_camp"
+        android:icon="@drawable/ic_baseline_house_siding_24"
+        android:title="캠핑장 추가"
+        android:iconTint="@color/six"/>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="로그아웃"
+        android:iconTint="@color/one"/>
+</menu>

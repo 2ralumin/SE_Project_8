@@ -1,55 +1,19 @@
 package com.muleo.soft.entity
 
-import androidx.room.*
-import kotlinx.coroutines.flow.Flow
+import com.google.firebase.Timestamp
 
-@Entity(tableName = "camp_table")
 data class Camp(
-    @PrimaryKey
-    val id: Int,
-    @ColumnInfo(name = "name")
-    val name: String,
-    @ColumnInfo(name = "latitude")
-    val latitude: Double,
-    @ColumnInfo(name = "longitude")
-    val longitude: Double,
-    @ColumnInfo(name = "isEmpty")
-    val isEmpty: Boolean,
-    @ColumnInfo(name = "imgPath")
-    val imgPath: String,
-    @ColumnInfo(name = "accountNumber")
-    val accountNumber: String,
-    @ColumnInfo(name = "inf")
-    val inf: String,
+    val id: String? = null, // 번호
+    val name: String? = null, // 이름
+    val latitude: Double? = null, // 위도
+    val longitude: Double? = null, // 경도
+    val address: String? = null, // 캠핑장 주소
+    @field:JvmField
+    val isEmpty: Boolean? = null, // 캠핑장이 비었는가
+    val imgPath: String? = null, // 이미지 경로
+    val accountNumber: String? = null, // 계좌번호
+    val info: String? = null, // 정보
+    val date: Timestamp? = null,
+    val won: Long? = null// 인당 가격
 )
-
-
-@Dao
-interface CampDao {
-
-    @Query("SELECT * FROM camp_table WHERE id = :campId")
-    suspend fun get(campId: Int): Camp?
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addOrUpdate(vararg camps: Camp)
-
-    @Query("SELECT * FROM camp_table ORDER BY id ASC")
-    fun getCampList(): Flow<List<Camp>>
-
-    @Delete
-    fun deleteCamps(vararg camps: Camp)
-}
-
-class CampRepository(private val campDao: CampDao) {
-
-    val allCamps: Flow<List<Camp>> = campDao.getCampList()
-
-    suspend fun addOrUpdate(vararg camps: Camp) {
-        campDao.addOrUpdate(camps = camps)
-    }
-
-    suspend fun get(campId: Int): Camp? {
-        return campDao.get(campId = campId)
-    }
-}
 

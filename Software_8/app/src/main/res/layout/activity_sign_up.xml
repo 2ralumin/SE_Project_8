@@ -3,6 +3,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="36dp"
@@ -14,24 +15,22 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/idOutlinedTextField"
+            android:id="@+id/emailOutlinedTextField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hint_id"
+            android:hint="@string/hint_email"
             app:counterEnabled="true"
-            app:counterMaxLength="10"
+            app:counterMaxLength="30"
             app:errorEnabled="true"
-            app:helperText="@string/id_helper"
+            app:helperText="@string/email_helper"
             app:helperTextEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/pwOutlinedTextField"
-            app:layout_constraintEnd_toStartOf="@+id/idMatchButton"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/idTextInputEditText"
+                android:id="@+id/emailTextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
@@ -51,7 +50,7 @@
             app:helperText="@string/pw_helper"
             app:helperTextEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/pwCheckOutlinedTextField"
-            app:layout_constraintTop_toBottomOf="@+id/idOutlinedTextField">
+            app:layout_constraintTop_toBottomOf="@+id/emailOutlinedTextField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/pwTextInputEditText"
@@ -111,7 +110,7 @@
             android:hint="@string/hint_age"
             app:errorEnabled="true"
             app:helperText="@string/helper"
-            app:layout_constraintBottom_toTopOf="@+id/emailOutlinedTextField"
+            app:layout_constraintBottom_toTopOf="@+id/phoneOutlinedTextField"
             app:layout_constraintTop_toBottomOf="@+id/nameOutlinedTextField">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -122,24 +121,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailOutlinedTextField"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/hint_email"
-            app:errorEnabled="true"
-            app:helperText="@string/helper"
-            app:layout_constraintBottom_toTopOf="@+id/phoneOutlinedTextField"
-            app:layout_constraintTop_toBottomOf="@+id/ageOutlinedTextField">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailTextInputEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/phoneOutlinedTextField"
@@ -150,7 +131,7 @@
             app:errorEnabled="true"
             app:helperText="@string/helper"
             app:layout_constraintBottom_toTopOf="@+id/signUpButton"
-            app:layout_constraintTop_toBottomOf="@+id/emailOutlinedTextField">
+            app:layout_constraintTop_toBottomOf="@+id/ageOutlinedTextField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneTextInputEditText"
@@ -161,20 +142,10 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/idMatchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/check_id"
-            android:textStyle="bold"
-            app:layout_constraintBaseline_toBaselineOf="@+id/idOutlinedTextField"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/idOutlinedTextField" />
-
-        <Button
             android:id="@+id/signUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="signUp"
             android:text="@string/button_singUp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/phoneOutlinedTextField"
