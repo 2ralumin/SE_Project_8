@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- Media -->
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/photoImageView"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_edit"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="top|start"
+                android:text="수정"
+                app:chipBackgroundColor="@color/three"
+                app:chipIcon="@drawable/ic_baseline_edit_24" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <!-- Title, secondary and supporting text -->
+            <TextView
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                tools:text="제 1공학관" />
+
+            <TextView
+                android:id="@+id/addressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="서울특별시 종로구 홍지문2길 20" />
+
+            <TextView
+                android:id="@+id/infoEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                android:textColor="?android:attr/textColorSecondary"
+                tools:text="컴퓨터 과학과 등등..." />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_available"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="이용 가능"
+                    app:chipBackgroundColor="@color/five"
+                    app:chipIcon="@drawable/ic_baseline_favorite_24" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_unavailable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom"
+                    android:text="이용 불가능"
+                    app:chipBackgroundColor="@color/two"
+                    app:chipIcon="@drawable/ic_baseline_block_24" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

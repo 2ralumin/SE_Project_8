@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/commentTextField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/postWriter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="익명" />
+
+            <TextView
+                android:id="@+id/postDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                app:layout_constraintStart_toStartOf="@+id/postWriter"
+                app:layout_constraintTop_toBottomOf="@+id/postWriter"
+                tools:text="06/17 22:25" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/materialButtonToggleGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/postDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/postWriter"
+                app:singleSelection="true">
+
+                <Button
+                    android:id="@+id/upButton"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_baseline_thumb_up_24" />
+
+                <Button
+                    android:id="@+id/downButton"
+                    style="@style/Widget.App.Button.OutlinedButton.IconOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_baseline_thumb_down_24" />
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <TextView
+                android:id="@+id/postTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintStart_toStartOf="@+id/postDate"
+                app:layout_constraintTop_toBottomOf="@+id/materialButtonToggleGroup"
+                tools:text="실험레포트쓰며 느낀 점" />
+
+            <TextView
+                android:id="@+id/postContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                app:layout_constraintStart_toStartOf="@+id/postTitle"
+                app:layout_constraintTop_toBottomOf="@+id/postTitle"
+                tools:text="그림 실력이 늘어따" />
+
+            <Button
+                android:id="@+id/thumbUpButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_baseline_thumb_up_24"
+                app:iconPadding="0dp"
+                app:iconTint="@color/five"
+                app:layout_constraintStart_toStartOf="@+id/postContent"
+                app:layout_constraintTop_toBottomOf="@+id/postContent"
+                tools:text="0" />
+
+            <Button
+                android:id="@+id/thumbDownButton"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/ic_baseline_thumb_down_24"
+                app:iconPadding="0dp"
+                app:iconTint="@color/six"
+                app:layout_constraintBottom_toBottomOf="@+id/thumbUpButton"
+                app:layout_constraintStart_toEndOf="@+id/thumbUpButton"
+                app:layout_constraintTop_toTopOf="@+id/thumbUpButton"
+                tools:text="0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment_recyclerview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/materialButtonToggleGroup"
+                app:layout_constraintStart_toStartOf="@+id/thumbUpButton"
+                app:layout_constraintTop_toBottomOf="@+id/thumbUpButton"
+                tools:listitem="@layout/info_post" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/commentTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="댓글을 입력하세요."
+        app:endIconContentDescription="댓글보내기"
+        app:endIconDrawable="@drawable/ic_baseline_send_24"
+        app:endIconMode="custom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/commentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

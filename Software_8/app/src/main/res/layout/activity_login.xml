@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="48dp"
+    tools:context=".ui.LoginActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailOutlineTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_email"
+        app:counterEnabled="true"
+        app:counterMaxLength="30"
+        app:layout_constraintBottom_toTopOf="@+id/pwOutlineTextField"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:startIconDrawable="@drawable/ic_baseline_person_24"
+        app:startIconTint="@color/design_default_color_primary"
+        tools:layout_editor_absoluteX="64dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pwOutlineTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_pw"
+        app:counterEnabled="true"
+        app:counterMaxLength="15"
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/loginButton"
+        app:layout_constraintTop_toBottomOf="@+id/emailOutlineTextField"
+        app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
+        app:startIconTint="@color/design_default_color_primary"
+        tools:layout_editor_absoluteX="64dp">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pwTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/singUpButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="signUpActivity"
+        android:text="@string/button_singUp"
+        app:layout_constraintEnd_toStartOf="@+id/loginButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/loginButton" />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_login"
+        android:onClick="login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/singUpButton"
+        app:layout_constraintTop_toBottomOf="@+id/pwOutlineTextField" />
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="SE_Project_8"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+        app:layout_constraintBottom_toTopOf="@+id/emailOutlineTextField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

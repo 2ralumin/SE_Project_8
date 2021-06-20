@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">soft</string>
+    <string name="hint_id">아이디</string>
+    <string name="hint_pw">비밀번호</string>
+    <string name="button_login">로그인</string>
+    <string name="button_singUp">회원가입</string>
+    <string name="camp_info">캠핑장 정보</string>
+    <string name="reserve">예약하기</string>
+    <string name="board">게시판</string>
+    <string name="check_id">중복확인</string>
+    <string name="pw_helper">6~15</string>
+    <string name="email_helper">3~30</string>
+    <string name="hint_pw_check">비밀번호 확인</string>
+    <string name="hint_name">이름</string>
+    <string name="hint_age">나이</string>
+    <string name="hint_email">이메일</string>
+    <string name="hint_phone">전화번호</string>
+    <string name="helper">필수</string>
+    <string name="error_pw_length">6이상 15이하</string>
+    <string name="error_email_length">3이상</string>
+    <string name="error_pw_not_equal">동일하지 않습니다</string>
+    <string name="error_empty">비어있습니다</string>
+    <string name="error_format">올바른 형식이 아닙니다</string>
+    <string name="check_id_fail">중복되는 아이디가 존재합니다</string>
+    <string name="manager_id">Manager</string>
+    <string name="user_info">사용자 정보</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_address">주소</string>
+    <string name="hint_account">계좌번호</string>
+    <string name="hint_info">캠핑장 정보</string>
+    <string name="error_length">1자리 이상</string>
+    <string name="reserve_confirm">숙박시작 : %1$s\n숙박종료 : %2$s\n인원수 : %3$s\n캠핑장 : %4$s\n총 결제 가격 : %5$s\n</string>
+    <string name="reserve_result">숙박시작 : %1$s\n숙박종료 : %2$s\n인원수 : %3$s\n캠핑장 : %4$s\n총 결제 가격 : %5$s\n예약자 : %6$s\n</string>
+    <string name="payment_info">캠핑장 주인이 예약 요청을 수락할 경우에만 \'수락\'으로 전환되며 예약이 완료됩니다.\n결제 방식은 현재 계좌이체만 가능합니다.\n받는분 통장 이름을 예약자의 이메일로 해야합니다.</string>
+    <string name="payment_account">계좌번호 :\n %1$s</string>
+    <string name="info_reserve_reserveDate">예약날짜: %1$s</string>
+    <string name="info_reserve_acceptDate">승인날짜: %1$s</string>
+    <string name="info_reserve_start">시작: %1$s</string>
+    <string name="info_reserve_end">끝: %1$s</string>
+    <string name="info_reserve_count">%1$s명</string>
+    <string name="info_reserve_totalPrice">%1$s원</string>
+</resources>

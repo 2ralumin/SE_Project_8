@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="36dp"
+    tools:context=".ui.SignUpActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/idOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_id"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:errorEnabled="true"
+            app:helperText="@string/id_helper"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/pwOutlinedTextField"
+            app:layout_constraintEnd_toStartOf="@+id/idMatchButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/idTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pwOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_pw"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:helperText="@string/pw_helper"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/pwCheckOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/idOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pwTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pwCheckOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_pw_check"
+            app:counterEnabled="true"
+            app:counterMaxLength="15"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:helperText="@string/pw_helper"
+            app:helperTextEnabled="true"
+            app:layout_constraintBottom_toTopOf="@+id/nameOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/pwOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pwCheckTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_name"
+            app:errorEnabled="true"
+            app:helperText="@string/helper"
+            app:layout_constraintBottom_toTopOf="@+id/ageOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/pwCheckOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ageOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_age"
+            app:errorEnabled="true"
+            app:helperText="@string/helper"
+            app:layout_constraintBottom_toTopOf="@+id/emailOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/nameOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ageTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_email"
+            app:errorEnabled="true"
+            app:helperText="@string/helper"
+            app:layout_constraintBottom_toTopOf="@+id/phoneOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/ageOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneOutlinedTextField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_phone"
+            app:errorEnabled="true"
+            app:helperText="@string/helper"
+            app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+            app:layout_constraintTop_toBottomOf="@+id/emailOutlinedTextField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/idMatchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_id"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/idOutlinedTextField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/idOutlinedTextField" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_singUp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/phoneOutlinedTextField"
+            app:layout_constraintTop_toBottomOf="@+id/phoneOutlinedTextField" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

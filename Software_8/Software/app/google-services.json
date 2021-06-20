@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "379772041112",
+    "project_id": "sangmyung-sw-project-8-muleo",
+    "storage_bucket": "sangmyung-sw-project-8-muleo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379772041112:android:67f54b180f6441c4131ded",
+        "android_client_info": {
+          "package_name": "com.muleo.soft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379772041112-cdvsba9tq1eso2fje2s1fu3dlgntqq5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.muleo.soft",
+            "certificate_hash": "323f7dad93332588c083beca9780e081cf84c698"
+          }
+        },
+        {
+          "client_id": "379772041112-iqaadqcpiukbm2ga9ao0vbrb6ik14o4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvt8nX7BZzTgUDDFdm1Yh3XnPD1pornXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379772041112-iqaadqcpiukbm2ga9ao0vbrb6ik14o4u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
