@@ -8,13 +8,13 @@
     tools:context=".ui.LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/emailOutlineTextField"
+        android:id="@+id/idOutlineTextField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_email"
+        android:hint="@string/hint_id"
         app:counterEnabled="true"
-        app:counterMaxLength="30"
+        app:counterMaxLength="10"
         app:layout_constraintBottom_toTopOf="@+id/pwOutlineTextField"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteX="64dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailTextInputEditText"
+            android:id="@+id/idTextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text" />
@@ -39,7 +39,7 @@
         app:counterMaxLength="15"
         app:endIconMode="password_toggle"
         app:layout_constraintBottom_toTopOf="@+id/loginButton"
-        app:layout_constraintTop_toBottomOf="@+id/emailOutlineTextField"
+        app:layout_constraintTop_toBottomOf="@+id/idOutlineTextField"
         app:startIconDrawable="@drawable/ic_baseline_vpn_key_24"
         app:startIconTint="@color/design_default_color_primary"
         tools:layout_editor_absoluteX="64dp">
@@ -57,7 +57,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="signUpActivity"
+        android:onClick="registerUser"
         android:text="@string/button_singUp"
         app:layout_constraintEnd_toStartOf="@+id/loginButton"
         app:layout_constraintHorizontal_bias="0.5"
@@ -70,23 +70,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/button_login"
-        android:onClick="login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/singUpButton"
         app:layout_constraintTop_toBottomOf="@+id/pwOutlineTextField" />
-
-    <TextView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="SE_Project_8"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
-        app:layout_constraintBottom_toTopOf="@+id/emailOutlineTextField"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

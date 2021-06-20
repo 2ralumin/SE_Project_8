@@ -1,99 +1,80 @@
 package com.muleo.soft.ui
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.muleo.soft.CampApp
+import com.muleo.soft.R
+import com.muleo.soft.control.UserInfoControl
+import com.muleo.soft.control.UserViewModelFactory
 import com.muleo.soft.databinding.ActivityLoginBinding
-import com.muleo.soft.entity.Camp
-import com.muleo.soft.util.AuthUtil
-import com.muleo.soft.util.FirebaseUtil
-import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
-    // Firebase
-    private lateinit var fb: FirebaseFirestore
-    private lateinit var auth: FirebaseAuth
-    // View
-    private lateinit var email: EditText
+    private val uic: UserInfoControl by viewModels {
+        UserViewModelFactory((application as CampApp).userRep)
+    }
+    private lateinit var id: EditText
     private lateinit var pw: EditText
     private lateinit var login: Button
     private lateinit var signUp: Button
     private lateinit var binding: ActivityLoginBinding
 
-    // 생명주기 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        // Firebase
-        auth = AuthUtil.auth
-        fb = FirebaseUtil.fireStore
-
-        // 로그인 하였다면 Menu 로 이동
-        if (auth.currentUser != null) {
-            // Not signed in, launch the Sign In activity
-            startActivity(Intent(this, Menu::class.java))
-            finish()
-        }
-
-        // View 를 init
         binding.apply {
             // 구성 요소
-            email = emailTextInputEditText
+            id = idTextInputEditText
             pw = pwTextInputEditText
             login = loginButton
             signUp = singUpButton
         }
 
-    }
-
-    // 생명주기 2
-    // 로그인 하였다면 Menu 로 이동
-    override fun onStart() {
-        super.onStart()
-        if (auth.currentUser != null) {
-            // Not signed in, launch the Sign In activity
-            startActivity(Intent(this, Menu::class.java))
-            finish()
+        login.setOnClickListener {
+            uic.get(id.text.toString())
         }
+        uic.checkUser.observe(this, {
+            if (it != null) {
+                if (it.pw == pw.text.toString()) {
+                    (application as CampApp).user = it
+                    if (it.id == getString(R.string.manager_id)) {
+                        campInfoActivity(isUser = false)
+                    } else {
+                        campInfoActivity(isUser = true)
+                    }
+
+                } else {
+                    showMisMatch("비밀번호 불일치")
+                }
+            } else {
+                showMisMatch("없는 id")
+            }
+        })
+
+        setContentView(binding.root)
     }
 
     // 회원가입 버튼을 누르면
-    fun signUpActivity(view: View) {
+    fun registerUser(view: View) {
         startActivity(Intent(this, SignUpActivity::class.java))
     }
 
-    // 로그인 버튼을 누르면
-    fun login(view: View) {
-        auth.signInWithEmailAndPassword(email.text.toString(), pw.text.toString())
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // 전역 User 설정
-                    fb.collection("users")
-                        .document("${auth.currentUser!!.email}")
-                        .get()
-                        .addOnSuccessListener { doc ->
-                        }
-                    // 로그인 성공 시
-                    startActivity(Intent(this, Menu::class.java))
-                    finish()
-                } else {
-                    // 로그인 실패 시
-                    Toast.makeText(
-                        baseContext, "로그인 실패 ${task.exception?.message}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
+    fun showMisMatch(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
+    fun campInfoActivity(isUser: Boolean) {
+        (application as CampApp).isUser = isUser
+        startActivity(Intent(this, Menu::class.java))
+        finish()
+    }
+
+
+
 }
