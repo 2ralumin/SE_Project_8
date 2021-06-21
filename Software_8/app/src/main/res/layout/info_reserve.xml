@@ -101,4 +101,17 @@
         app:layout_constraintStart_toEndOf="@+id/totalPrice"
         app:layout_constraintTop_toTopOf="@+id/totalPrice"
         tools:text="승인여부" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="취소"
+        android:visibility="invisible"
+        app:chipBackgroundColor="@color/three"
+        app:layout_constraintBottom_toBottomOf="@+id/totalPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/totalPrice"
+        app:layout_constraintTop_toTopOf="@+id/totalPrice"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

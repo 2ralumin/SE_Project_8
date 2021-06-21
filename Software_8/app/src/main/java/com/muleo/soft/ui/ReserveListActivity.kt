@@ -156,6 +156,55 @@ class ReserveListActivity : AppCompatActivity() {
                             }
                             str = ""
                         }
+                    } else {
+                        if (str == "대기중") {
+                            // 취소 버튼 활성화
+                            findViewById<TextView>(R.id.cancelButton).apply {
+                                visibility = View.VISIBLE
+                                setOnClickListener {
+                                    MaterialAlertDialogBuilder(it.context)
+                                        .setTitle("취소 하시겠습니까?")
+                                        .setNeutralButton("아니요") { dialog, which ->
+                                            // Respond to neutral button press
+                                        }
+                                        .setPositiveButton("예") { dialog, which ->
+                                            fb.collection("camps")
+                                                .whereEqualTo("name", model.campName).limit(1)
+                                                .get()
+                                                .addOnCompleteListener { task ->
+                                                    if (task.isSuccessful) {
+                                                        val campId =
+                                                            task.result!!.documents[0].getString("id")
+                                                        fb.collection("camps")
+                                                            .document(campId!!)
+                                                            .collection("reserves")
+                                                            .document(model.id!!)
+                                                            .delete()
+                                                            .addOnCompleteListener { task2 ->
+                                                                if (!task2.isSuccessful) {
+                                                                    Toast.makeText(
+                                                                        this@ReserveListActivity,
+                                                                        "취소 실패",
+                                                                        Toast.LENGTH_SHORT
+                                                                    ).show()
+                                                                }else {
+                                                                    visibility = View.INVISIBLE
+                                                                }
+                                                            }
+                                                    } else {
+                                                        Toast.makeText(
+                                                            this@ReserveListActivity,
+                                                            "취소 실패",
+                                                            Toast.LENGTH_SHORT
+                                                        ).show()
+                                                    }
+
+                                                }
+                                        }.show()
+                                }
+                            }
+                            str = ""
+                        }
                     }
                     findViewById<TextView>(R.id.isAccept).text = str
                 }
