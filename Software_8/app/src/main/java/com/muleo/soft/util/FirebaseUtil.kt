@@ -13,7 +13,7 @@ object FirebaseUtil {
     val fireStore: FirebaseFirestore by lazy {
         val fb = Firebase.firestore
         if (sUseEmulators) {
-            fb.useEmulator("10.0.2.2", 8080)
+            fb.useEmulator("10.0.2.2", 8181)
         }
         fb
     }

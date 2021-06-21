@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Soft"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.PaymentActivity"></activity>
+        <activity android:name=".ui.ReserveUpdateActivity"></activity>
+        <activity android:name=".ui.PaymentActivity" />
         <activity android:name=".ui.ReserveListActivity" />
         <activity android:name=".ui.CampWriteActivity" />
         <activity android:name=".ui.CampUpdateActivity" />

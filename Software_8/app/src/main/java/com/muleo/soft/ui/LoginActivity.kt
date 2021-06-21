@@ -1,6 +1,5 @@
 package com.muleo.soft.ui
 
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,18 +9,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.muleo.soft.CampApp
 import com.muleo.soft.databinding.ActivityLoginBinding
-import com.muleo.soft.entity.Camp
 import com.muleo.soft.util.AuthUtil
 import com.muleo.soft.util.FirebaseUtil
-import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
     // Firebase
     private lateinit var fb: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
+
     // View
     private lateinit var email: EditText
     private lateinit var pw: EditText

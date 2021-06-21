@@ -30,6 +30,19 @@
         app:layout_constraintTop_toTopOf="@+id/reserveDate"
         tools:text="승인날짜" />
 
+    <com.google.android.material.chip.Chip
+        android:id="@+id/updateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="수정"
+        android:visibility="invisible"
+        app:chipBackgroundColor="@color/three"
+        app:layout_constraintBottom_toBottomOf="@+id/acceptDate"
+        app:layout_constraintEnd_toEndOf="@+id/cancelButton"
+        app:layout_constraintStart_toStartOf="@+id/cancelButton"
+        app:layout_constraintTop_toTopOf="@+id/acceptDate"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/start"
         android:layout_width="0dp"
@@ -108,7 +121,7 @@
         android:layout_height="40dp"
         android:text="취소"
         android:visibility="invisible"
-        app:chipBackgroundColor="@color/three"
+        app:chipBackgroundColor="@color/six"
         app:layout_constraintBottom_toBottomOf="@+id/totalPrice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/totalPrice"

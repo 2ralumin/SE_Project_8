@@ -1,5 +1,6 @@
 package com.muleo.soft.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -187,7 +188,7 @@ class ReserveListActivity : AppCompatActivity() {
                                                                         "취소 실패",
                                                                         Toast.LENGTH_SHORT
                                                                     ).show()
-                                                                }else {
+                                                                } else {
                                                                     visibility = View.INVISIBLE
                                                                 }
                                                             }
@@ -203,7 +204,32 @@ class ReserveListActivity : AppCompatActivity() {
                                         }.show()
                                 }
                             }
-                            str = ""
+                            str = "" // 취소 버튼 활성화 시에는 대기중 이라는 str을 표시안함
+                            // 수정 버튼 활성화
+                            findViewById<TextView>(R.id.updateButton).apply {
+                                visibility = View.VISIBLE
+                                setOnClickListener {
+                                    MaterialAlertDialogBuilder(it.context)
+                                        .setTitle("수정 하시겠습니까?")
+                                        .setNeutralButton("아니요") { dialog, which ->
+                                            // Respond to neutral button press
+                                        }
+                                        .setPositiveButton("예") { dialog, which ->
+                                            startActivity(
+                                                Intent(
+                                                    context,
+                                                    ReserveUpdateActivity::class.java
+                                                ).apply {
+                                                    putExtra("reserveId", model.id)
+                                                    putExtra("start", model.start)
+                                                    putExtra("end", model.end)
+                                                    putExtra("count", model.count)
+                                                    putExtra("campName", model.campName)
+                                                })
+                                        }.show()
+                                }
+                            }
+
                         }
                     }
                     findViewById<TextView>(R.id.isAccept).text = str
